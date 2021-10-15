@@ -1,11 +1,9 @@
 
 
-
-    var user=   $.trim($('#user').val());
-    var pass=   $.trim($('#pass').val());
-
     //alert(user);
     function entrar(){
+        var user=   $.trim($('#user').val());
+        var pass=   $.trim($('#pass').val());
     $.ajax({
         url: "php/consultas.php",
         type: "POST",
@@ -30,9 +28,11 @@
 //////////////////////////Registro////////////////////////////7
 
 function registro(){
-    var direccion = $.trim($('#direccion').val);
-    var cel       = $.trim($('#cel').val);
-    var f_n       = $.trim($('#f_n').val);
+    var user=   $.trim($('#user').val());
+    var pass=   $.trim($('#pass').val());
+    var direccion = $.trim($('#direccion').val());
+    var cel       = $.trim($('#cel').val());
+    var f_n       = $.trim($('#f_n').val());
 
     $.ajax({
         url: 'php/consultas.php',
@@ -41,6 +41,8 @@ function registro(){
         data: {opc: '2', usuario: user, contraseña: pass, dereccion: direccion, cel: cel, f_n: f_n},
         success: function(data){
             alert('exito');
+            //window.location.href('index.html');
+            window.location.replace('index.html');
         },
         error: function(r){
             alert('error: '+ r);
